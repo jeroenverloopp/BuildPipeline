@@ -23,6 +23,7 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+        
 
   checkLicence:
     name: Check for the Unity license

@@ -24,7 +24,7 @@ jobs:
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
 
-  CheckBranch:
+  checkBranch:
     name: Check for the main branch
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +33,7 @@ jobs:
         run: exit 1
 
   checkLicence:
+    needs: checkBranch
     name: Check for the Unity license
     runs-on: ubuntu-latest
     steps:

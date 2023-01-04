@@ -23,14 +23,13 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
-        
 
   checkLicence:
     name: Check for the Unity license
     runs-on: ubuntu-latest
     steps:
       - name: Fail - No licence
-        if: ${{ !startsWith(env.UNITY_LICENSE, '<') && github.event_name == 'pull_request' }}
+        if: ${{ !startsWith(env.UNITY_LICENSE, '<') && github.event.ref == 'refs/heads/main' }}
         run: exit 1
   
   testRunner:

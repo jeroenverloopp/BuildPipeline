@@ -13,6 +13,14 @@ jobs:
       - name: Fail - No licence
         if: ${{ !startsWith(env.UNITY_LICENSE, '<') }}
         run: exit 1
+  
+  testRunner:
+    needs: checkLicense
+    name: Test Runner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
 
 #  testRunner:

@@ -15,7 +15,7 @@ jobs:
         run: exit 1
   
   testRunner:
-    needs: checkLicense
+    needs: checkLicence
     name: Test Runner
     runs-on: ubuntu-latest
     steps:

@@ -24,6 +24,14 @@ jobs:
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
 
+  CheckBranch:
+    name: Check for the main branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail - wrong branch
+        if: ${{ github.event.ref != 'refs/heads/main' }}
+        run: exit 1
+
   checkLicence:
     name: Check for the Unity license
     runs-on: ubuntu-latest
